@@ -1,11 +1,11 @@
-<div class="p-3 resume_container">
+<div class="resume_container">
 	<!-- RESUMSE TITLE -->
         <table class="resume_title">
                 <tr class="main">
                         <td class="text-center text-nowrap py-0 px-2">Neil Snyder</td>
                 </tr>
 		<tr class="sub">
-			<td class="text-center text-nowrap py-0 px-2">Full Stack Web Developer</td>
+			<td class="text-center text-nowrap pt-0 pb-2 px-2">Full Stack Web Developer</td>
 		</tr>
         </table>
 
@@ -14,7 +14,7 @@
                 <tr>
                         <td class="text-start text-nowrap">
                                 <b>Techs:</b>
-                                JavaSCript, MySQL, AngularJS, Angular, Node, Python
+                                JavaSCript, MySQL, AngularJS, Angular, Node, Python, Git, SVN, Apache, HTML, CSS
                         </td>
                         <td class="text-end text-nowrap">
                                 Hillsboro, Oregon
@@ -38,13 +38,13 @@
                 </tr>
         </table>
 
-	<hr class="section-divider">
+	<hr class="section-divider mt-1 mb-1">
 
         <!-- SUMMARY -->
 	<div class="section_header">Summary</div>
         <p class="resume_summary">Innovative software professional with over 6 years of experience in developing and managing robust applications, optimizing systems, and enhancing performance in high-demand environments. Currently focused on solving complex problems in manufacturing systems and infrastructure while driving cross-functional collaboration to deliver impactful technical solutions. Passionate about taking on challenging software engineering roles that push the boundaries of my expertise and foster continuous learning.</p>
 
-	<hr class="section-divider">
+	<hr class="section-divider mb-1">
 
         <!-- EXPERIENCE -->
 	<div class="section_header">Experience</div>
@@ -52,7 +52,7 @@
 		<table class="job_entry">
 			<thead>
 				<tr>
-					<th colspan="4" class="job_company px-2 py-1">{{ job.company }}</th>
+					<th colspan="3" class="job_company px-2 py-1">{{ job.company }}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,18 +60,15 @@
 					<td class="text-start text-nowrap fw-bold job_desc ps-3">
 						{{ pos.title }}
 					</td>
-					<td class="text-end text-nowrap year_start">
-						{{ pos.pstart }}
-					</td>
-					<td class="text-center year-divider">-</td>
-					<td class="text-start text-nowrap">
-						{{ pos.pend }}
+					<td class="filler">
+					<td class="text-start text-nowrap date_range">
+						{{ pos.pstart }} - {{ pos.pend }}
 					</td>
 				</tr>
 				<tr class="job-description">
 					<td colspan="4" class="border-top border-dark-subtle">
 						<ul>
-							<li *ngFor="let dut of job.duties">{{ dut }}</li>
+							<li *ngFor="let dut of job.duties">{{ dut.desc }}<span class="fst-italic" *ngIf="dut.techs">&nbsp;({{dut.techs.join(', ')}})</span></li>
 						</ul>
 					</td>
 				</tr>
@@ -79,7 +76,7 @@
 		</table>
 	</ng-container>
 
-	<hr class="section-divider">
+	<hr class="section-divider mb-1">
 
 	<!-- EDUCATION -->
 	<div class="section_header">Education</div>
@@ -89,9 +86,10 @@
 				<td class="edu_desc text-left text-nowrap">
 					<b>{{ e.degree }}</b> - {{ e.school }}
 				</td>
-				<td class="year_start">{{ e.estart }}</td>
-				<td class="year_divider text-center">-</td>
-				<td class="end_year">{{ e.eend }}</td>
+				<td class="filler">
+				<td class="date_range">
+					{{ e.estart }} - {{ e.eend }}
+				</td>
 			</tr>
 		</tbody>
 	</table>

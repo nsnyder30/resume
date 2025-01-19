@@ -105,3 +105,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media print, screen {
+	body {
+		width: 8.5in;
+		margin: 0.25in;
+	}
+
+	.page, .resume_container {
+		height: 11in;
+	}
+
+	.page-break {
+		page-break-before: always;
+	}
+}

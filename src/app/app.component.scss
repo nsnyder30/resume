@@ -46,16 +46,15 @@ body {
 	color: #fff;
 }
 
-.year_start {
+.date_range {
+	width: 12%;
+}
+
+.edu_desc, .job_desc {
 	width: 1%;
 }
 
-.edu_desc {
-	width: 93%;
-}
-
-.job_desc {
-	width: 95%;
+.filler {
 }
 
 .education {
@@ -67,11 +66,4 @@ body {
 	border-top: 2px solid #000; /* Adds a light-grey horizontal line */
 	width: 100%; /* Ensures the line spans the full width */
 	opacity: 0.5;
-}
-
-@media print {
-	.job_company {
-		background-color: #65979c;
-		color: #fff;
-	}
 }
