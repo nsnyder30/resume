@@ -1,0 +1,100 @@
+<div class="p-3 resume_container">
+	<!-- RESUMSE TITLE -->
+        <table class="resume_title">
+                <tr class="main">
+                        <td class="text-center text-nowrap py-0 px-2">Neil Snyder</td>
+                </tr>
+		<tr class="sub">
+			<td class="text-center text-nowrap py-0 px-2">Full Stack Web Developer</td>
+		</tr>
+        </table>
+
+        <!-- PERSONAL INFO -->
+        <table class="resume_info">
+                <tr>
+                        <td class="text-start text-nowrap">
+                                <b>Techs:</b>
+                                JavaSCript, MySQL, AngularJS, Angular, Node, Python
+                        </td>
+                        <td class="text-end text-nowrap">
+                                Hillsboro, Oregon
+                        </td>
+                </tr>
+                <tr>
+                        <td class="text-start text-nowrap">
+                                <b>Activities:</b>
+                                Fitness, Piano, East Coast Swing, D&amp;D
+                        </td>
+                        <td class="text-end text-nowrap">
+                                neil.r.snyder&#64;gmail.com
+                        </td>
+                </tr>
+                <tr>
+                        <td class="text-start text-nowrap">
+                        </td>
+                        <td class="text-end text-nowrap">
+                                1-415-828-2676
+                        </td>
+                </tr>
+        </table>
+
+	<hr class="section-divider">
+
+        <!-- SUMMARY -->
+	<div class="section_header">Summary</div>
+        <p class="resume_summary">Innovative software professional with over 6 years of experience in developing and managing robust applications, optimizing systems, and enhancing performance in high-demand environments. Currently focused on solving complex problems in manufacturing systems and infrastructure while driving cross-functional collaboration to deliver impactful technical solutions. Passionate about taking on challenging software engineering roles that push the boundaries of my expertise and foster continuous learning.</p>
+
+	<hr class="section-divider">
+
+        <!-- EXPERIENCE -->
+	<div class="section_header">Experience</div>
+        <ng-container *ngFor="let job of jobs">
+		<table class="job_entry">
+			<thead>
+				<tr>
+					<th colspan="4" class="job_company px-2 py-1">{{ job.company }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="job-header" *ngFor="let pos of job.positions">
+					<td class="text-start text-nowrap fw-bold job_desc ps-3">
+						{{ pos.title }}
+					</td>
+					<td class="text-end text-nowrap year_start">
+						{{ pos.pstart }}
+					</td>
+					<td class="text-center year-divider">-</td>
+					<td class="text-start text-nowrap">
+						{{ pos.pend }}
+					</td>
+				</tr>
+				<tr class="job-description">
+					<td colspan="4" class="border-top border-dark-subtle">
+						<ul>
+							<li *ngFor="let dut of job.duties">{{ dut }}</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+
+	<hr class="section-divider">
+
+	<!-- EDUCATION -->
+	<div class="section_header">Education</div>
+	<table class="education">
+		<tbody>
+			<tr class="edu_entry" *ngFor="let e of education">
+				<td class="edu_desc text-left text-nowrap">
+					<b>{{ e.degree }}</b> - {{ e.school }}
+				</td>
+				<td class="year_start">{{ e.estart }}</td>
+				<td class="year_divider text-center">-</td>
+				<td class="end_year">{{ e.eend }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
