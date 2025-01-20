@@ -16,7 +16,11 @@ export class AppComponent implements OnInit {
 	title = 'angular_app';
 	jobs = [
 		{
-			company: 'Qorvo, Inc.', 
+			company: {
+				cname: 'Qorvo, Inc.', 
+				cstart: '2018', 
+				cend: 'Present'
+			}, 
 			positions: [
 				{
 					title: 'Senior Business Systems Analyst', 
@@ -36,24 +40,28 @@ export class AppComponent implements OnInit {
 					pend: '2021' }
 			], 
 			duties: [
-				{ desc: 'Migrated reporting server backend to redundant multi-server architecture', 
-				  techs: ['Apache','PHP','JavaScript','MySQL']}, 
-				{ desc: 'Developed failover system for critical photolithography databases, ensuring seamless operations during network outtages', 
-				  techs: ['PHP', 'JavaScript', 'MySQL']}, 
+				{ desc: '<b>Primary Role:</b> Lead the design, development, and maintenance of critical manufacturing reporting systems, ensuring seamless operations through robust web applications, real-time data integration, and secure, scalable infrastructure', 
+				  techs: []}, 
+				{ desc: 'Migrated reporting server backend to a redundant multi-server architecture, eliminating recurring crashes (previously 2-3 per month) and ensuring near-100% uptime by resolving systemic flaws that caused service interruptions', 
+				  techs: ['JavaScript','PHP','MySQL','Apache']}, 
+				{ desc: 'Developed failover system for critical photolithography databases, ensuring seamless operations during network outages<br>', 
+				  techs: ['JavaScript', 'PHP', 'MySQL']}, 
 				{ desc: 'Built interactive fab map with live tool-state data, improving factory visualization and navigation',
-				  techs: ['JavaScript', 'AngularJS', 'PHP', 'SVG', 'MySQL']}, 
-				{ desc: 'Optimized reporting tools, reducing page load times by over 95%, saving 500+ hours per month in productivity', 
-				  techs: ['PHP', 'JavaScript', 'MySQL']}, 
-				{ desc: 'Refactored PHP codebase to implement parameterized queries, enhacning security against SQL injection attacks'}, 
-				{ desc: 'Deployed SSL encryption and transitioned static user permissions to a dynamic role-based system'}, 
-				{ desc: 'Designed and implemented an advanced PTO calendar system, integrating LDAP for real-time employee data updates and enabling supervisors to manage schedules, approve PTO requests, and assign quality points through an intuitive interface',
-				  techs: ['PHP', 'JavaScript', 'AngularJS', 'MySQL']}, 
-				{ desc: 'Developed a headcount view for HR, providing a dynamic pivot table for tracking employee assignments across factory zones and shifts, significantly improving operational visibility and decision-making.', 
-				  techs: ['PHP', 'JavaScript', 'AngularJS']}
+				  techs: ['JavaScript', 'AngularJS', 'SVG', 'PHP']}, 
+				{ desc: 'Optimized reporting tools, reducing page load times by 90%, saving 500+ hours per month in productivity', 
+				  techs: ['JavaScript', 'PHP', 'MySQL']}, 
+				{ desc: 'Enhanced system security by implementing parameterized queries to prevent SQL injection, deploying SSL encryption, transitioning to a dynamic role-based permission system, and relocating plain-text API credentials to a secure configuration file outside the web root.',
+				  techs: ['JavaScript', 'PHP', 'Apache']}, 
+				{ desc: 'Designed and implemented an advanced PTO calendar system, integrating LDAP for real-time employee data updates and enabling supervisors to manage schedules, approve PTO requests, and plan headcount',
+				  techs: ['JavaScript', 'AngularJS', 'PHP', 'MySQL']}, 
 			]
 		}, 
 		{
-			company: 'Drug Delivery Experts', 
+			company: {
+				cname: 'Drug Delivery Experts', 
+				cstart: '2017', 
+				cend: '2018'
+			}, 
 			positions: [
 				{
 					title: 'Project Manager', 
@@ -65,12 +73,18 @@ export class AppComponent implements OnInit {
 					pend: '2017' }
 			], 
 			duties: [
-				{ desc: 'Built networked inventory tracking system, eliminating concurrency issues and automating expense reimbursement invoicing process, saving $10,000 in expenses (MS Access, VBA)'}, 
-				{ desc: 'Coordinated agreements and communications for 5-10 clients simultaenously, ensuring efficient project execution'}
+				{ desc: 'Built networked inventory tracking system, eliminating concurrency issues and automating expense reimbursement invoicing process, saving $10,000 in monthly expenses', 
+				  techs: ['MS Access','VBA']}, 
+				{ desc: 'Coordinated agreements and communications for 5-10 clients simultaneously, ensuring efficient project execution', 
+				  techs: []}
 			]
 		}, 
 		{
-			company: 'Charter Equity Research', 
+			company: {
+				cname: 'Charter Equity Research', 
+				cstart: '2008', 
+				cend: '2012'
+			}, 
 			positions: [
 				{
 					title: 'Senior Programmer', 
@@ -82,8 +96,10 @@ export class AppComponent implements OnInit {
 					pend: '2010' }, 
 			], 
 			duties: [
-				{ desc: 'Developed dynamic named array reference system for financial models, enabling seamless data updates and ipmroving quarterly reporting workflow (MS Excel, VBA)'}, 
-				{ desc: 'Integrated client database with call-trakcing software to streamline workflows (MS Access, VBA)'}
+				{ desc: 'Developed dynamic named array reference system for financial models, enabling seamless data updates and improving quarterly reporting workflow', 
+				  techs: ['MS Excel','VBA']}, 
+				{ desc: 'Integrated client database with call-tracking software to streamline workflows', 
+				  techs: ['MS Access', 'VBA']}
 			]
 		}
 	];
@@ -107,6 +123,16 @@ export class AppComponent implements OnInit {
 		    private styleUpdateService: StyleUpdateService) {
 	}
 
+	app_list(type: string, obj: any) {
+		switch(type) {
+			case 'techs':
+				return '('+obj.sort().join(', ')+')';
+				break;
+			default:
+			 return '';
+		}
+		return '';
+	}
 	ngOnInit() {
 	}
 }

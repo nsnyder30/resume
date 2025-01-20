@@ -12,6 +12,8 @@ body {
 }
 
 .resume_title {
+	background-color: rgb(70, 70, 70);
+	color: #FFF;
 	width: 100%;
 	& > .main {
 		font-size: calc(1.5 * #{$fsize});
