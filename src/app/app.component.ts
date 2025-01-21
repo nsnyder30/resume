@@ -1,9 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { LayoutService } from './services/layout.service';
-import { HeaderService } from './services/header.service';
-import { StyleUpdateService } from './services/style-update.service';
 
 @Component({
 	selector: 'app-root',
@@ -117,10 +114,7 @@ export class AppComponent implements OnInit {
 		}
 	]
 
-	constructor(private router: Router, 
-		    private layoutService: LayoutService, 
-		    private headerService: HeaderService, 
-		    private styleUpdateService: StyleUpdateService) {
+	constructor() {
 	}
 
 	app_list(type: string, obj: any) {
